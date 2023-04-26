@@ -2,19 +2,19 @@
 <html>
 <head>
     <title>Кластеризация точек</title>
-    <style>
-        #canvas {
-            width: 500px;
-            height: 500px;
-            border: 1px solid black;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div id="canvas-container">
-        <canvas id="canvas"></canvas>
-      </div>
-      <button id="cluster-btn">Cluster</button>
+    <div id="container">
+        <div id="canvas-container">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div id="buttons-container">
+            <button id="reset-button">Сбросить</button>
+            <button id="cluster-button">Кластеризовать</button>
+        </div>
+    </div>
     <script src="2.js"></script>
+    
 </body>
 </html>
