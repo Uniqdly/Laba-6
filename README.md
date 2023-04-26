@@ -1,2 +1,1 @@
-# Laba-6
-# Laba-6
+# Laba6
