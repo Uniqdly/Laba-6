@@ -1,31 +1,49 @@
-const canvas = new fabric.Canvas('canvas');
+// Получаем элементы DOM
+const canvas = document.getElementById('canvas');
+const resetButton = document.getElementById('reset-button');
+const clusterButton = document.getElementById('cluster-button');
 
-canvas.on('mouse:down', function(options) {
-  const x = options.e.clientX;
-  const y = options.e.clientY;
-  const point = new fabric.Circle({
-    left: x,
-    top: y,
-    radius: 5,
-    fill: 'red',
-    selectable: false
-  });
-  canvas.add(point);
-});
-const clusterBtn = document.getElementById('cluster-btn');
+// Задаем размеры холста
+canvas.width = 500;
+canvas.height = 500;
 
-clusterBtn.addEventListener('click', function() {
-  const points = canvas.getObjects();
-  const data = points.map(function(point) {
-    return [point.left, point.top];
-  });
-  const kmeans = new KMeans();
-  const clusters = kmeans.cluster(data, 3);
-  clusters.forEach(function(cluster, index) {
-    const color = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
-    cluster.forEach(function(pointIndex) {
-      points[pointIndex].set('fill', color);
-    });
-  });
-  canvas.renderAll();
-});
+// Получаем контекст рисования
+const ctx = canvas.getContext('2d');
+
+// Создаем массив для хранения точек
+let points = [];
+
+// Функция для добавления точки
+function addPoint(event) {
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    points.push({x, y});
+    drawPoints();
+}
+
+// Функция для отрисовки точек
+function drawPoints() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < points.length; i++) {
+        ctx.beginPath();
+        ctx.arc(points[i].x, points[i].y, 5, 0, 2 * Math.PI);
+        ctx.fill();
+    }
+}
+
+// Функция для сброса точек
+function resetPoints() {
+    points = [];
+    drawPoints();
+}
+
+// Функция для кластеризации точек
+function clusterPoints() {
+
+}
+
+// Обработчики событий
+canvas.addEventListener('click', addPoint);
+resetButton.addEventListener('click', resetPoints);
+clusterButton.addEventListener('click', clusterPoints);

@@ -1,16 +1,25 @@
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
 #canvas-container {
-    width: 500px;
-    height: 500px;
-    border: 1px solid black;
-    position: relative;
-  }
+  border: 2px solid black;
+  margin-bottom: 20px;
   
-  #canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  
-  #cluster-btn {
-    margin-top: 10px;
-  }
+}
+
+#buttons-container {
+  display: flex;
+  flex-direction: row;
+}
+
+button {
+  margin-right: 10px;
+}
+
+canvas {
+  cursor: crosshair;
+}
