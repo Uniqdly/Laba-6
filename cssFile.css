@@ -1,0 +1,73 @@
+/*Настройки поля*/
+table td{
+    background-color: white;/*фон внутри границ*/
+}
+
+.wall{
+    background-color: grey; /*Цвет стен*/
+}
+
+.metal{
+    background-color:skyblue;/*цвет границ*/
+}
+
+.start{
+    background-color: blue;/*цвет старта*/
+}
+
+.end{
+    background-color: red;/*цвет финиша*/
+}
+.btn{
+    margin: 5px;
+}
+
+/*Настройка анимаций внутри поля*/
+.open {
+    background:darkorchid;/*границы поиска*/
+}
+
+.closed {
+    background: #323232;/*отметка пройденых точек*/
+}
+
+.path {
+    background:#60ff60;/*кратчайший путь*/
+}
+
+
+body {
+    background-color: skyblue; /* цвет всей задней панели*/
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+
+#table tr td {/*границы между клетками*/
+    width: 13px;
+    height: 13px;
+    border: 1px solid black;
+}
+
+.controls {/*табло управления*/
+    margin-top: 10px;
+    display: flex;
+    background-color: skyblue;
+}
+
+.stop{
+    flex: none;
+}
+
+.radio {
+    flex-direction: column;
+    align-items: center;
+    margin:   auto 10px auto 10px;
+}
+
+
+
+
