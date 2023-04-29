@@ -5,21 +5,21 @@
   margin-top: 50px;
 }
 
-#canvas-container {
-  border: 2px solid black;
+#buttons-container {
+  display: flex;
+  flex-direction: row;
   margin-bottom: 20px;
   
 }
 
-#buttons-container {
-  display: flex;
-  flex-direction: row;
-}
-
-button {
+.btn {
   margin-right: 10px;
+  background-color: skyblue;
+  font-size: 30px;
+  padding: 10px 20px;
 }
 
-canvas {
+#canvas {
   cursor: crosshair;
+  border: 3px solid skyblue;
 }
