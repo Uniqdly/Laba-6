@@ -1,0 +1,25 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  #buttons-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    
+  }
+  
+  .btn {
+    margin-right: 10px;
+    background-color: skyblue;
+    font-size: 30px;
+    padding: 10px 20px;
+  }
+  
+  #canvas {
+    cursor: crosshair;
+    border: 3px solid skyblue;
+  }
