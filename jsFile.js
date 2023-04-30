@@ -247,7 +247,7 @@ function blockAll(flag) {
 
 runBtn.onclick = function () {
 
-    if (!checkStartIsPossible()) {
+    if (!checkStartIsPossible()) {//Проверяем, что начальная и конечная точки добавлены
         alert("Нужно добавить начальную и конечную точку");
         return;
     }
@@ -269,15 +269,15 @@ runBtn.onclick = function () {
         for (let col = 0; col < TABLE_WIDTH; col++) {
             let tmp = table.rows[row].cells[col];
             if (tmp.className === Class.STRONG_WALL || tmp.className === Class.WALL) {
-                array[row][col] = new Point('#', col, row);
+                array[row][col] = new Point('#', col, row);//Проверяю ячейки и если это стена или граница, то создаю поинт #
             } else if (tmp.className === Class.START_POINT) {
-                let point = new Point('S', col, row);
+                let point = new Point('S', col, row); //Проверяю ячейки и если это точка старта, создаю поинт S со значением 0
                 point.setStartPoint();
                 point.setValue(0);
                 array[row][col] = point;
                 openList.push(point);
             } else if (tmp.className === Class.END_POINT) {
-                let point = new Point('E', col, row);
+                let point = new Point('E', col, row);//Проверяю ячейки и если это точка финиша, создаю поинт Е и помечаю его как конечный
                 point.setEndPoint();
                 targetPoint = point;
                 array[row][col] = point;
@@ -344,7 +344,7 @@ runBtn.onclick = function () {
         let minF = Infinity;
         let minElementIndex = null;
 
-        for (let index in openList) {
+        for (let index in openList) {//ищу в списке минимальное чило и удаляю его из списка
             if (minF > openList[index].getF()) {
                 minF = openList[index].getF();
                 minElementIndex = index;
@@ -358,7 +358,7 @@ runBtn.onclick = function () {
     }
 
 
-    function checkPoint(x, y) {
+    function checkPoint(x, y) {//функция используется в алгоритме поиска пути для проверки, является ли заданная точка допустимой для поиска пути, и для обновления ее значений, если она достижима через более дешевый путь.
         let tmpX = parentPoint.getX() + x;
         let tmpY = parentPoint.getY() + y;
         let verifiablePoint = array[tmpY][tmpX];
@@ -408,7 +408,7 @@ runBtn.onclick = function () {
 }
 
 
-clearBtn.onclick = function () {
+clearBtn.onclick = function () {//чищу поле и даю возможность на нём рисовать
     for (let i = 0; i < TABLE_HEIGHT; i++) {
         for (let j = 0; j < TABLE_WIDTH; j++) {
             let curTD = table.rows[i].cells[j];
