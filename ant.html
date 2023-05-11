@@ -1,22 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Муравьи</title>
-    <link rel="stylesheet" type="text/css" href="ant.css">
+   
+    <link rel="stylesheet" href="ant.css">
 </head>
 <body>
-    <div id="container">
-        <div id="canvas-container">
-            <canvas id="canvas"></canvas>
-        </div>
-        <div id="buttons-container">
-            <button type="button" class="btn btn-default" id="reset-button">Сбросить</button>
-            <button type="button" class="btn btn-default" id="start-button">Запустить</button>
-        </div>
-    </div>
-    <script src="ant.js"></script>
-    
+    <nav>
+        <ul>
+          <li><a href="Astar.html">Астар</a></li>
+          <li><a href="2.html">Кластеризация</a></li>
+          <li><a href="#">Генетический алгоритм</a></li>
+          <li><a href="ant.html">Муравьиный алгоритм</a></li>
+          <li><a href="#">Дерево решений</a></li>
+          <li><a href="6.html">Нейросеть</a></li>
+        </ul>
+      </nav>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <button onclick="getVertices()">Получить вершины</button>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        var vertices = [];
+
+        canvas.addEventListener("click", function(event) {
+            var x = event.clientX - canvas.offsetLeft;
+            var y = event.clientY - canvas.offsetTop;
+            vertices.push({x: x, y: y});
+            drawVertices();
+        });
+
+        function drawVertices() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "red";
+            for (var i = 0; i < vertices.length; i++) {
+                ctx.beginPath();
+                ctx.arc(vertices[i].x, vertices[i].y, 5, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        }
+
+        function getVertices() {
+            console.log(vertices);
+        }
+    </script>
 </body>
 </html>
