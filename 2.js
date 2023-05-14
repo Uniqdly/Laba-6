@@ -4,8 +4,8 @@ const resetButton = document.getElementById('reset-button');
 const clusterButton = document.getElementById('cluster-button');
 
 // Задаем размеры холста
-canvas.width = 1000;
-canvas.height = 1000;
+canvas.width = 500;
+canvas.height = 500;
 
 // Получаем контекст рисования
 const ctx = canvas.getContext('2d');
