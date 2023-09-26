@@ -153,44 +153,47 @@ class Point {
 
     setValue(value) {
         this.value = value;
-    }
+    }//значение для текущей ячейки.
 
     getG() {
-        return this.g;
+        return this.g; //значение для текущей ячейки.
     }
 
     getParent() {
-        return this.parent;
+        return this.parent; //возвращает родительскую ячейку для текущей ячейки.
     }
 
     setParent(parent) {
-        this.parent = parent;
+        this.parent = parent; //устанавливает родительскую ячейку для текущей ячейки.
     }
 
     getF() {
-        return this.f;
+        return this.f; //возвращает значение f для текущей ячейки.
     }
 
     isStartPoint() {
-        return this.startPoint;
+        return this.startPoint; //возвращает  true, если текущая ячейка является начальной точкой.
+       
     }
 
     setStartPoint() {
-        this.startPoint = true;
+        this.startPoint = true;//устанавливает текущую ячейку как начальную точку.
     };
 
     isEndPoint() {
-        return this.endPoint;
+        return this.endPoint; //возвращает  true, если текущая ячейка является конечной точкой.
+       
+        
     }
 
     setEndPoint() {
-        this.endPoint = true;
+        this.endPoint = true;//устанавливает текущую ячейку как конечную точку.
     }
 
     getX() {
         return this.x;
     }
-
+// возвращают координаты текущей ячейки.
     getY() {
         return this.y;
     }
@@ -201,25 +204,29 @@ class Point {
 
     setHGF(h, g) {
         this.h = h * 10;
-        this.g = g + this.parent.g;
+        this.g = g + this.parent.g;//устанавливает значения   h ,  g и f для текущей ячейки.
         this.f = this.h + this.g;
     };
 
     addOpenList() {
-        this.inOpenList = true;
+        this.inOpenList = true;//добавляет текущую ячейку в открытый список.
     };
 
     isInOpenList() {
-        return this.inOpenList;
+        return this.inOpenList;//возвращает true, если текущая ячейка находится в открытом списке.
+      
+        
     };
 
     moveToClosedList() {
         this.inClossedList = true;
-        this.inOpenList = false;
+        this.inOpenList = false;//возвращает true, если текущая ячейка находится в открытом списке.
+        
+        
     };
 
     inClosedList() {
-        return this.inClossedList;
+        return this.inClossedList; //возвращает true, если текущая ячейка находится в закрытом списке.
     };
 
 }
